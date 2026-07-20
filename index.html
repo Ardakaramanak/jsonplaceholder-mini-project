@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>JSONPlaceholder Mini Proje</title>
+    <script type="module" crossorigin src="/assets/index-Djt0GBSA.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CkmTKj5y.css">
+  </head>
+
+  <body>
+    <header class="page-header">
+      <div class="container">
+        <h1>JSONPlaceholder Mini Proje</h1>
+        <p>Kullanıcı ve gönderi yönetim uygulaması</p>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="section">
+        <div class="section-heading">
+          <div>
+            <h2>Kullanıcılar</h2>
+            <p>API üzerinden kullanıcı bilgilerini getir.</p>
+          </div>
+
+          <button id="load-users" class="button" type="button">
+            Kullanıcıları Getir
+          </button>
+        </div>
+
+        <form id="user-filter-form" class="filter-form">
+          <input
+            id="user-filter"
+            type="text"
+            name="username"
+            placeholder="Kullanıcı adına göre filtrele"
+          />
+
+          <button class="button button-secondary" type="submit">
+            Filtrele
+          </button>
+
+          <button
+            id="clear-filter"
+            class="button button-danger"
+            type="button"
+          >
+            Temizle
+          </button>
+        </form>
+
+        <p id="users-loading" class="loading is-hidden">
+          Kullanıcılar yükleniyor...
+        </p>
+
+        <ul id="user-list" class="user-list"></ul>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <div>
+            <h2>Yeni Gönderi</h2>
+            <p>Başlık ve içerik girerek yeni gönderi oluştur.</p>
+          </div>
+        </div>
+
+        <form id="post-form" class="post-form">
+          <label>
+            Başlık
+            <input
+              type="text"
+              name="title"
+              placeholder="Gönderi başlığını yazın"
+              required
+            />
+          </label>
+
+          <label>
+            İçerik
+            <textarea
+              name="body"
+              placeholder="Gönderi içeriğini yazın"
+              rows="5"
+              required
+            ></textarea>
+          </label>
+
+          <button class="button" type="submit">Gönderi Ekle</button>
+        </form>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <div>
+            <h2>Gönderiler</h2>
+            <p>Gönderiler API üzerinden 5’erli olarak yüklenir.</p>
+          </div>
+
+          <button id="reload-posts" class="button button-secondary" type="button">
+            Yeniden Yükle
+          </button>
+        </div>
+
+        <p id="posts-loading" class="loading is-hidden">
+          Gönderiler yükleniyor...
+        </p>
+
+        <ul id="post-list" class="post-list"></ul>
+
+        <button id="load-more" class="button load-more is-hidden" type="button">
+          Daha Fazla Yükle
+        </button>
+      </section>
+    </main>
+
+    <div id="edit-modal" class="modal is-hidden">
+      <div class="modal-content">
+        <button
+          id="close-modal"
+          class="modal-close"
+          type="button"
+          aria-label="Pencereyi kapat"
+        >
+          ×
+        </button>
+
+        <h2>Gönderiyi Düzenle</h2>
+
+        <form id="edit-form" class="post-form">
+          <input type="hidden" name="id" />
+
+          <label>
+            Başlık
+            <input type="text" name="title" required />
+          </label>
+
+          <label>
+            İçerik
+            <textarea name="body" rows="5" required></textarea>
+          </label>
+
+          <button class="button" type="submit">Değişiklikleri Kaydet</button>
+        </form>
+      </div>
+    </div>
+
+  </body>
+</html>
